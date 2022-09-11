@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      
+      <h1 class="header-left">
+        <%= link_to "ながのCAKE", root_path, class: "logo" %>
+      </h1>
+      
+      <div class="header-right">
+        <nav>
+          <ul class="navbar">
+            <li class="nav-items">
+              <%= link_to "About", home_about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-items">
+              <%= link_to "商品一覧", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-items">
+              <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-items">
+              <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </nav>
+      
+        <div class="search">
+          <form action="自身のwebサイトURL" method="get">
+            <input type="search" name="search" placeholder="Search" style="width: 220px; height: 30px;">
+            <input type="submit" name="submit" value="検索">
+          </form>
+        </div>
+      
+      </div>
+    </header>
+    
+    <main>
+      <%= yield %>
+    </main>
+    
+    <footer>
+    </footer>
+  </body>
+</html>
