@@ -18,7 +18,7 @@
    padding: 0;
    box-sizing:border-box;
  }
- 
+
  /*header*/
 
  header {
@@ -26,18 +26,24 @@
    display: flex;
    justify-content: space-between;
    border-bottom: 1px solid #000;
+   background-color: khaki;
  }
 
  .header-left {
     height: 60px;
-    width:300px;
+    width: 300px;
+ }
+ 
+ .header-left a {
+    display:block;
     margin-top: 50px;
     margin-left: 20px;
     text-align: center;
     border-radius: 5px;
     border: 1px solid #000;
+    background-color: #fff;
  }
- 
+
  .header-right {
     width: 700px;
     height: 20vh;
@@ -65,11 +71,16 @@
  .nav-items {
    display: inline-block;
    width: 120px;
+ }
+ 
+ .nav-items a {
+   display: block;
    margin-left: 20px;
    padding: 10px 0;
    text-align: center;
    border-radius: 5px;
    border: 1px solid #000;
+   background-color: #fff;
  }
 
  .nav-link {
@@ -81,7 +92,7 @@
  .nav-link:visited {
     color: #000;
  }
- 
+
  .search {
     line-height: 50px;
     width: 300px;
@@ -89,10 +100,81 @@
     margin-top: 10px;
     margin-right: 30px;
  }
- 
+
  /*footer*/
- 
+
   footer {
     height: 100px;
     border-top: 1px solid #000;
+    background-color: khaki;
+ }
+
+ /*sign_up*/
+ .container {
+   margin: 0 auto;
+   width: 100%;
+ }
+
+ .sign-in-form {
+   margin: 50px auto 400px;
+   width: 800px;
+   height: 200px;
+ }
+ 
+ .sign-in-form h2 {
+   margin-left: -100px;
+   border-bottom: 8px solid #f0f0f0;
+   width: 180px;
+   text-align: center;
+   margin-bottom: 30px;
+ }
+ 
+ .sign-in-form h3 {
+   border-bottom: 8px solid #f0f0f0;
+   text-align: center;
+   width: 270px;
+   margin-bottom: 20px;
+   margin-top: 30px;
+ }
+
+ .form {
+	 display: flex;
+ }
+
+ .form-title {
+   line-height: 50px;
+	 width: 150px;
+ }
+ 
+ .transmission {
+   margin-top: 20px;
+ }
+ 
+ /* form-size */
+ 
+ .form-size {
+   width: 200px;
+   height: 40px;
+   margin: 5px 0;
+ }
+ 
+ .form-size2 {
+   width: 400px;
+   height: 40px;
+   margin: 5px 0;
+ }
+ 
+ /*btn*/
+ 
+ .btn {
+   width: 200px;
+   height: 40px;
+   border-radius: 5px;
+   font-weight: bold;
+   font-size: 16px;
+   color: #fff;
+ }
+ 
+ .btn-login {
+   background-color: lightskyblue;
  }
