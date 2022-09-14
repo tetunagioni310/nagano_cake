@@ -12,11 +12,11 @@
 
   <body>
     <header>
-      
+
       <h1 class="header-left">
-        <%= link_to "ながのCAKE", root_path, class: "logo" %>
+        <%= link_to "ながのCAKE", public_root_path, class: "logo" %>
       </h1>
-      
+
       <div class="header-right">
         <nav>
           <ul class="navbar">
@@ -33,9 +33,25 @@
               <li class="nav-items">
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
               </li>
+            <% elsif admin_signed_in? %>
+              <li class="nav-items">
+                <%= link_to "商品一覧", "#", class: "nav-link" %>
+              </li>
+              <li class="nav-items">
+                <%= link_to "会員一覧", "#", class: "nav-link" %>
+              </li>
+              <li class="nav-items">
+                <%= link_to "注文履歴一覧",  "#", class: "nav-link" %>
+              </li>
+              <li class="nav-items">
+                <%= link_to "ジャンル一覧", "#", class: "nav-link" %>
+              </li>
+              <li class="nav-items">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+              </li>
             <% else %>
               <li class="nav-items">
-                <%= link_to "About", home_about_path, class: "nav-link" %>
+                <%= link_to "About", "#", class: "nav-link" %>
               </li>
               <li class="nav-items">
               <%= link_to "商品一覧", "#", class: "nav-link" %>
@@ -49,21 +65,21 @@
             <% end %>
           </ul>
         </nav>
-      
+
         <div class="search">
           <form action="自身のwebサイトURL" method="get">
             <input type="search" name="search" placeholder="Search" style="width: 220px; height: 30px;">
             <input type="submit" name="submit" value="検索">
           </form>
         </div>
-      
+
       </div>
     </header>
-    
+
     <main>
       <%= yield %>
     </main>
-    
+
     <footer>
     </footer>
   </body>
