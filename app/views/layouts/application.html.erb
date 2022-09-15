@@ -14,7 +14,7 @@
     <header>
 
       <h1 class="header-left">
-        <%= link_to "ながのCAKE", public_root_path, class: "logo" %>
+        <%= link_to "ながのCAKE", "#", class: "logo" %>
       </h1>
 
       <div class="header-right">
@@ -44,7 +44,7 @@
                 <%= link_to "注文履歴一覧",  "#", class: "nav-link" %>
               </li>
               <li class="nav-items">
-                <%= link_to "ジャンル一覧", "#", class: "nav-link" %>
+                <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link" %>
               </li>
               <li class="nav-items">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
@@ -77,7 +77,9 @@
     </header>
 
     <main>
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </main>
 
     <footer>

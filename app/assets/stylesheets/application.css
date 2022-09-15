@@ -18,6 +18,14 @@
    padding: 0;
    box-sizing:border-box;
  }
+ 
+ th {
+     padding: 10px;
+ }
+ 
+ td {
+     padding: 10px;
+ }
 
  /*header*/
 
@@ -33,7 +41,7 @@
     height: 60px;
     width: 300px;
  }
- 
+
  .header-left a {
     display:block;
     margin-top: 50px;
@@ -72,7 +80,7 @@
    display: inline-block;
    width: 120px;
  }
- 
+
  .nav-items a {
    display: block;
    margin-left: 20px;
@@ -86,6 +94,7 @@
  .nav-link {
     text-decoration: none;
     color: #000;
+    font-size: 14px;
     font-weight: bold;
  }
 
@@ -111,8 +120,9 @@
 
  /*sign_up*/
  .container {
-   margin: 0 auto;
-   width: 100%;
+   margin: 50px auto 400px;
+   width: 800px;
+   height: 200px;
  }
 
  .sign-in-form {
@@ -120,7 +130,7 @@
    width: 800px;
    height: 200px;
  }
- 
+
  .sign-in-form h2 {
    margin-left: -100px;
    border-bottom: 8px solid #f0f0f0;
@@ -128,7 +138,7 @@
    text-align: center;
    margin-bottom: 30px;
  }
- 
+
  .sign-in-form h3 {
    border-bottom: 8px solid #f0f0f0;
    text-align: center;
@@ -145,27 +155,35 @@
    line-height: 50px;
 	 width: 150px;
  }
- 
+
  .transmission {
    margin-top: 20px;
  }
- 
+
  /* form-size */
- 
+
  .form-size {
    width: 200px;
    height: 40px;
    margin: 5px 0;
+   font-size: 18px;
  }
- 
+
  .form-size2 {
+   width: 250px;
+   height: 40px;
+   margin: 5px 0;
+   font-size: 18px;
+ }
+
+ .form-size3 {
    width: 400px;
    height: 40px;
    margin: 5px 0;
  }
- 
+
  /*btn*/
- 
+
  .btn {
    width: 200px;
    height: 40px;
@@ -175,6 +193,15 @@
    color: #fff;
  }
  
+ .btn2 {
+   width: 150px;
+   height: 40px;
+   border-radius: 5px;
+   font-weight: bold;
+   font-size: 16px;
+   color: #fff;
+ }
+
  .btn-login {
    background-color: lightskyblue;
  }

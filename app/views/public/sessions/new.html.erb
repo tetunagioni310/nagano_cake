@@ -1,4 +1,3 @@
-<div class="sign-in-form">
   <h2>ログイン</h2>
   <h3>会員の方はこちらからログイン</h3>
   <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>
@@ -8,7 +7,7 @@
 	</dl>
 	<dl class="form">
 		<dt class="form-title"><%= f.label :password, "パスワード" %></dt>
-		<dd><%= f.password_field :password, autocomplete: "current-password", class: "form-size2" %></dd>
+		<dd><%= f.password_field :password, autocomplete: "current-password", class: "form-size3" %></dd>
 	</dl>
 	<dl class="form transmission">
 		<dt class="form-title"></dt>
@@ -18,7 +17,8 @@
 	
 	<h3>会員登録がお済みでない方</h3>
 	<p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行なってください。</p>
-</div>
-
+	
+	<h3>管理者用</h3>
+	<p><%= link_to "こちら", admin_session_path %> へ</p> 
 
 

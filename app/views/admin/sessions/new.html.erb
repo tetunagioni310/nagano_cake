@@ -1,5 +1,3 @@
-
-<div class="sign-in-form">
   <h2>管理者ログイン</h2>
   <%= form_with model: @admin, url: admin_session_path, method: :post do |f| %>
   <dl class="form">
@@ -15,4 +13,3 @@
 		<dd><%= f.submit "ログイン", class: "btn btn-login" %></dd>
 	</dl>
 	<% end %>
-</div>
