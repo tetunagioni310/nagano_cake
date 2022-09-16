@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   namespace :public do
     get 'homes/top'
   end
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'homes/top'
     resources :genres, only: [:index,:show,:edit,:create,:destroy,:update]
+    resources :items
   end
 
   # 顧客用

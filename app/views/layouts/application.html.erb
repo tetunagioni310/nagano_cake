@@ -35,7 +35,7 @@
               </li>
             <% elsif admin_signed_in? %>
               <li class="nav-items">
-                <%= link_to "商品一覧", "#", class: "nav-link" %>
+                <%= link_to "商品一覧", admin_items_path, class: "nav-link" %>
               </li>
               <li class="nav-items">
                 <%= link_to "会員一覧", "#", class: "nav-link" %>

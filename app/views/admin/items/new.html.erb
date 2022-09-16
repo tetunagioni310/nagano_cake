@@ -1,0 +1,41 @@
+<h1>商品新規登録</h1>
+<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+  <dl>
+    <dt><%= f.label :image, "商品画像" %></dt>
+    <dd><%= f.file_field :image, placeholder: "ファイルを選択", class: "form-size3", accept: "image/*" %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :name, "商品名" %></dt>
+    <dd><%= f.text_field :name, placeholder: "商品名", class: "form-size3" %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :introduction, "商品説明" %></dt>
+    <dd><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-size3" %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :genre_id, "ジャンル" %></dt>
+    <dd>
+      <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"} %>
+    </dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :price, "税抜価格"  %></dt>
+    <dd><%= f.text_field :price,placeholder: "1000" %>円</dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :is_active, "販売ステータス" %></dt>
+    <dd>
+      <%= f.label :is_active, '販売中', value: 'true' %>
+      <%= f.radio_button :is_active, 'true' %>
+      
+      <%= f.label :is_active, '販売停止中', value: 'false' %>
+      <%= f.radio_button :is_active, 'false' %>
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt></dt>
+    <dd><%= f.submit "新規登録" %></dd>
+  </dl>
+<% end %>
+

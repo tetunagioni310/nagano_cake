@@ -205,3 +205,28 @@
  .btn-login {
    background-color: lightskyblue;
  }
+ 
+ /* table */
+ th {
+     background-color: lightgray;
+ }
+ 
+ .genre-row {
+   display: flex;
+   justify-content: space-between;
+   list-style: none;
+ }
+ 
+ .table1 {
+   width: 300px;
+ }
+ 
+ .table2 {
+   width: 500px;
+ }
+ 
+ /*item_details*/
+ 
+ .item-show {
+     display: flex;
+ }
