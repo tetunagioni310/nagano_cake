@@ -12,10 +12,19 @@
 
   <body>
     <header>
-
-      <h1 class="header-left">
-        <%= link_to "ながのCAKE", "#", class: "logo" %>
-      </h1>
+      <% if customer_signed_in? %>
+        <h1 class="header-left">
+          <%= link_to "ながのCAKE", public_root_path, class: "logo" %>
+        </h1>
+      <% elsif admin_signed_in? %>
+        <h1 class="header-left">
+          <%= link_to "ながのCAKE", admin_root_path, class: "logo" %>
+        </h1>
+      <% else %>
+        <h1 class="header-left">
+          <%= link_to "ながのCAKE", "#", class: "logo" %>
+        </h1>
+      <% end %>
 
       <div class="header-right">
         <nav>
@@ -38,7 +47,7 @@
                 <%= link_to "商品一覧", admin_items_path, class: "nav-link" %>
               </li>
               <li class="nav-items">
-                <%= link_to "会員一覧", "#", class: "nav-link" %>
+                <%= link_to "会員一覧", admin_customers_path, class: "nav-link" %>
               </li>
               <li class="nav-items">
                 <%= link_to "注文履歴一覧",  "#", class: "nav-link" %>
