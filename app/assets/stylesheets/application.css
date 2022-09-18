@@ -13,210 +13,286 @@
  *= require_tree .
  *= require_self
  */
- *{
-   margin: 0;
-   padding: 0;
-   box-sizing:border-box;
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
  }
 
  /*header*/
 
  header {
-   height: 150px;
-   display: flex;
-   justify-content: space-between;
-   border-bottom: 1px solid #000;
-   background-color: khaki;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  background-color: khaki;
  }
 
  .header-left {
-    height: 60px;
-    width: 300px;
+  height: 60px;
+  width: 300px;
  }
 
  .header-left a {
-    display:block;
-    margin-top: 50px;
-    margin-left: 20px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #000;
-    background-color: #fff;
+  display: block;
+  margin-top: 50px;
+  margin-left: 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: #fff;
  }
 
  .header-right {
-    width: 700px;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items:flex-end;
+  width: 700px;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
  }
 
  .logo {
-    text-decoration: none;
-    font-family: "Arial Black";
-    line-height: 60px;
+  text-decoration: none;
+  font-family: "Arial Black";
+  line-height: 60px;
  }
 
  .logo:visited {
-    color: #000;
+  color: #000;
  }
 
  .navbar {
-   list-style: none;
-   margin-top: 30px;
-   margin-right: 30px;
+  list-style: none;
+  margin-top: 30px;
+  margin-right: 30px;
  }
 
  .nav-items {
-   display: inline-block;
-   width: 120px;
+  display: inline-block;
+  width: 120px;
  }
 
  .nav-items a {
-   display: block;
-   margin-left: 20px;
-   padding: 10px 0;
-   text-align: center;
-   border-radius: 5px;
-   border: 1px solid #000;
-   background-color: #fff;
+  display: block;
+  margin-left: 20px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: #fff;
  }
 
  .nav-link {
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-    font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
  }
 
  .nav-link:visited {
-    color: #000;
+  color: #000;
  }
 
  .search {
-    line-height: 50px;
-    width: 300px;
-    height: 50px;
-    margin-top: 10px;
-    margin-right: 30px;
+  line-height: 50px;
+  width: 300px;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 30px;
  }
+
  /*main*/
- 
+
  .container {
-   margin: 50px auto 400px;
-   width: 800px;
-   height: 200px;
+  margin: 50px auto 400px;
+  width: 1000px;
+  height: 300px;
  }
 
  /*footer*/
 
-  footer {
-    height: 100px;
-    border-top: 1px solid #000;
-    background-color: khaki;
+ footer {
+  height: 100px;
+  border-top: 1px solid #000;
+  background-color: khaki;
  }
 
-/*genre*/
+ /*genre*/
+ .add-genre {
+  padding: 50px 0;
+ }
 
  .genre-row {
-   display: flex;
-   justify-content: space-between;
-   list-style: none;
- }
- 
- /*item_details*/
- 
- .item-show {
-   display: flex;
- }
- 
-  /* table */
-th {
- background-color: lightgray;
- padding: 8px;
-}
- 
-td {
- padding: 3px;
-}
- 
-.table1 {
- width: 300px;
-}
- 
-.table2 {
- width: 800px;
-}
- 
-/*btn*/
-
-.btn {
- width: 200px;
- height: 40px;
- border-radius: 5px;
- font-weight: bold;
- font-size: 16px;
- color: #fff;
-}
- 
-.btn2 {
- width: 150px;
- height: 40px;
- border-radius: 5px;
- font-weight: bold;
- font-size: 16px;
- color: #fff;
- }
-
-/*btn-type*/
-
-.btn-login {
- background-color: lightskyblue;
- }
-
-/*form dl dt dd*/
-
-.flex {
- display: flex;
-}
-
-.list-none {
+  display: flex;
+  justify-content: space-between;
   list-style: none;
-}
-
-.form-title {
- line-height: 50px;
- width: 150px;
-}
-
-.form-row {
- line-height: 50px;
-}
-
-.margin-left {
- margin-left: 50px;
-}
-
-/* form-size */
-
-.form-size {
- width: 200px;
- height: 40px;
- margin-bottom: 2px;
- border-radius: 8px;
  }
 
-.form-size2 {
- width: 250px;
- height: 40px;
- margin-bottom: 2px;
- border-radius: 8px;
+ /*item_details*/
+
+ .item-show {
+  display: flex;
+ }
+
+ /* table */
+ table {
+  border-collapse:collapse;
+  margin: 50px 0;
+ }
+
+ th {
+  background-color: lightgray;
+  padding: 8px;
+  text-align: left;
+ }
+
+ td {
+  padding: 8px;
+ }
+
+ .table1 {
+  width: 300px;
+ }
+
+ .table2 {
+  width: 800px;
+  margin: 50px auto;
+ }
+ 
+ .table3 {
+  width: 1000px;
+ }
+
+ /*btn*/
+
+ .btn {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+ }
+
+ .btn2 {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+ }
+
+ .btn3 {
+  display: inline-block;
+  width: 80px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  color: #fff;
+ }
+
+  .btn4 {
+  display: inline-block;
+  width: 120px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+ }
+
+ /*btn-type*/
+
+ .btn-color1 {
+  background-color: mediumseagreen;
+ }
+
+ .btn-color2 {
+  background-color: lightskyblue;
+ }
+
+ /*form dl dt dd*/
+
+ .flex {
+  display: flex;
+ }
+ 
+ .between {
+  justify-content: space-between;
+ }
+
+ .list-none {
+  list-style: none;
+ }
+
+ .form-title {
+  line-height: 50px;
+  width: 150px;
+ }
+ 
+ .form-title2 {
+  line-height: 50px;
+  width: 300px;
+ }
+
+ .form-row {
+  line-height: 50px;
+ }
+ 
+ .form-row-submit {
+  line-height: 80px
+ }
+
+ /* form-size */
+
+ .form-size {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 8px;
+ }
+
+ .form-size2 {
+  width: 250px;
+  height: 40px;
+  margin-bottom: 8px;
  }
 
  .form-size3 {
- width: 500px;
- height: 40px;
- margin-bottom: 2px;
- border-radius: 8px;
+  width: 500px;
+  height: 40px;
+  margin-bottom: 8px;
  }
+
+ .form-size4 {
+  width: 250px;
+  height: 150px;
+  margin-bottom: -12px;
+ }
+
+ /*margin*/
+
+ .margin-left {
+  margin-left: 50px;
+ }
+ 
+ .margin-left2 {
+  margin-left: 150px;
+ }
+ 
+ .margin-left-m {
+  margin-left: -63px;
+ }
+
+ .margin-top {
+  margin-top: 50px;
+ }
+ /*padding*/

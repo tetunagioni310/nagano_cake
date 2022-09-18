@@ -1,4 +1,5 @@
 <h1><%= @customer.full_name %></h1>
+<%= render "admin/shared/error_messages", resource: @customer %>
 
   <dl class="flex form-row">
     <dt class="form-title">会員ID</dt>
@@ -50,16 +51,17 @@
   <dl class="flex form-row">
     <dt class="form-title">会員ステータス</dt>
     <dd>
-      <%= f.label :is_deleted, '有効', value: 'false' %>
       <%= f.radio_button :is_deleted, 'false' %>
+      <%= f.label :is_deleted, '有効', value: 'false' %>
       
-      <%= f.label :is_deleted, '退会', value: 'true' %>
+      
       <%= f.radio_button :is_active, 'true' %>
+      <%= f.label :is_deleted, '退会', value: 'true' %>
     </dd>
   </dl>
   
   <dl class="flex form-row">
     <dt class="form-title"></dt>
-    <dd><%= f.submit "変更を保存", class: "btn" %></dd>
+    <dd><%= f.submit "変更を保存", class: "btn btn-color1" %></dd>
   </dl>
   <% end %>

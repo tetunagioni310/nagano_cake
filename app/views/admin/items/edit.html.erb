@@ -1,6 +1,7 @@
 <h1>商品編集</h1>
 <div>
   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+  <%= render "admin/shared/error_messages", resource: @item %>
 
     <dl>
       <dt><%= f.label :image, "商品画像" %></dt>
@@ -42,7 +43,7 @@
 
     <dl>
       <dt></dt>
-      <dd><%= f.submit "変更を保存", class: "btn"  %></dd>
+      <dd><%= f.submit "変更を保存", class: "btn btn-color1"  %></dd>
     </dl>
   <% end %>
 </div>

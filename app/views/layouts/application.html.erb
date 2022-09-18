@@ -12,20 +12,9 @@
 
   <body>
     <header>
-      <% if customer_signed_in? %>
         <h1 class="header-left">
-          <%= link_to "ながのCAKE", public_root_path, class: "logo" %>
+          <%= link_to "ながのCAKE",root_path, class: "logo" %>
         </h1>
-      <% elsif admin_signed_in? %>
-        <h1 class="header-left">
-          <%= link_to "ながのCAKE", admin_root_path, class: "logo" %>
-        </h1>
-      <% else %>
-        <h1 class="header-left">
-          <%= link_to "ながのCAKE", "#", class: "logo" %>
-        </h1>
-      <% end %>
-
       <div class="header-right">
         <nav>
           <ul class="navbar">

@@ -1,29 +1,67 @@
-<h2>Sign up</h2>
+  <h2>新規会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">名前</dt>
+    <dd>
+      <ul class="flex list-none margin-left-m">
+        <li>　（姓）<%= f.email_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", class: "form-size" %></li>
+        <li> 　（名）<%= f.email_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "道子",class: "form-size" %></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">フリガナ</dt>
+    <dd>
+      <ul class="flex list-none margin-left-m">
+        <li>（セイ）<%= f.email_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "レイワ", class: "form-size" %></li>
+        <li>（メイ）<%= f.email_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ミチコ", class: "form-size" %></li>
+      </ul>
+    </dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">メールアドレス</dt>
+    <dd><%= f.email_field :password, autocomplete: "email", placeholder: "sample@example.com", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">郵便番号（ハイフンなし）</dt>
+    <dd><%= f.text_field :postal_code, autocomplete: "new-password", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">住所</dt>
+    <dd><%= f.text_field :address, autocomplete: "address", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">電話番号（ハイフンなし）</dt>
+    <dd><%= f.telephone_field :telephone_number, autocomplete: "telephone_number", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">パスワード（6文字以上）</dt>
+    <dd><%= f.password_field :password, autocomplete: "new-password", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row">
+    <dt class="form-title2">パスワード（確認用）</dt>
+    <dd><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-size" %></dd>
+  </dl>
+  
+  <dl class="flex form-row-submit">
+    <dt class="form-title"></dt>
+    <dd><%= f.submit "新規登録", class: "btn btn-color1 margin-left2" %></dd>
+  </dl>
+  
 <% end %>
 
-<%= render "public/shared/links" %>
+<section>
+  <h2>既に登録済みの方</h2>
+  <p><%= link_to "こちら", customer_session_path %>　からログインしてください</p>
+</section>
+
