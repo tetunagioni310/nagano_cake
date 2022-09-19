@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
  * {
   margin: 0;
   padding: 0;
@@ -106,7 +91,7 @@
 
  .container {
   margin: 50px auto 400px;
-  width: 1000px;
+  width: 90%;
   height: 300px;
  }
 
@@ -118,50 +103,10 @@
   background-color: khaki;
  }
 
- /*genre*/
- .add-genre {
-  padding: 50px 0;
- }
+ /*border*/
 
- .genre-row {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
- }
-
- /*item_details*/
-
- .item-show {
-  display: flex;
- }
-
- /* table */
- table {
-  border-collapse:collapse;
-  margin: 50px 0;
- }
-
- th {
-  background-color: lightgray;
-  padding: 8px;
-  text-align: left;
- }
-
- td {
-  padding: 8px;
- }
-
- .table1 {
-  width: 300px;
- }
-
- .table2 {
-  width: 800px;
-  margin: 50px auto;
- }
- 
- .table3 {
-  width: 1000px;
+ .border {
+  border: 1px solid #000;
  }
 
  /*btn*/
@@ -219,13 +164,19 @@
  .btn-color2 {
   background-color: lightskyblue;
  }
-
- /*form dl dt dd*/
-
+ 
+ /* flex */
+ 
  .flex {
   display: flex;
  }
  
+ .flex-wrap {
+  flex-wrap: wrap;
+ }
+
+ /*form dl dt dd*/
+
  .between {
   justify-content: space-between;
  }
@@ -238,7 +189,7 @@
   line-height: 50px;
   width: 150px;
  }
- 
+
  .form-title2 {
   line-height: 50px;
   width: 300px;
@@ -247,7 +198,7 @@
  .form-row {
   line-height: 50px;
  }
- 
+
  .form-row-submit {
   line-height: 80px
  }
@@ -278,16 +229,70 @@
   margin-bottom: -12px;
  }
 
+
+ /*font-size*/
+
+ .font-size1 {
+  font-size: 80px;
+ }
+
+ .font-size2 {
+  font-size: 26px;
+ }
+
+ /*height*/
+ 
+ .tf-height {
+  height: 100px;
+ }
+ 
+ /*item public*/
+ 
+ .item-left {
+  width: 20%;
+  margin: 0 auto;
+  background-color: blue;
+ }
+ 
+ .item-right {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 20px;
+  background-color: red;
+ }
+ 
+ .items {
+  width: 200px;
+  margin: 10px;
+ }
+ 
+ .item-list {
+  display: flex;
+  flex-wrap: wrap;
+ }
+ 
+ .item-detail {
+  margin-left: 50px;
+ }
+ 
+ .item-detail h1 {
+  font-size: 30px;
+ }
+ 
+ .item-detail p {
+  font-size: 24px;
+ }
+
  /*margin*/
 
  .margin-left {
   margin-left: 50px;
  }
- 
+
  .margin-left2 {
   margin-left: 150px;
  }
- 
+
  .margin-left-m {
   margin-left: -63px;
  }
@@ -295,4 +300,65 @@
  .margin-top {
   margin-top: 50px;
  }
+ 
  /*padding*/
+ 
+ .padding {
+  padding: 0;
+ }
+
+ /*text-align*/
+
+ .text-c {
+  text-align: center;
+ }
+
+  /* table */
+ table {
+  border-collapse:collapse;
+  margin: 50px 0;
+ }
+
+ th {
+  background-color: lightgray;
+  padding: 8px;
+  text-align: left;
+ }
+
+ td {
+  padding: 8px;
+ }
+
+ .table {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+ }
+
+ .table1 {
+  width: 300px;
+ }
+
+ .table2 {
+  width: 800px;
+  margin: 50px auto;
+ }
+
+ .table3 {
+  width: 1000px;
+ }
+
+.over-flow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paginate {
+ text-align: center;
+}
+
+.count {
+ display: inline-block;
+ margin-top: 20px;
+}

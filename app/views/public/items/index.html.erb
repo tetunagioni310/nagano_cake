@@ -1,0 +1,39 @@
+<div class="flex">
+  <div class="item-left">
+    <table class="items-genre border table">
+    <tr class="border">
+        <td class="text-c">ジャンル検索</td>
+    </tr>
+    <% @genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+    </tr>
+    <% end %>
+
+    <tr>
+      <td class="tf-height"></td>
+    </tr>
+    </table>
+  </div>
+  
+
+
+  <div class="item-right">
+    <div class="flex">
+      <h1>商品一覧</h1>
+      <p class="count">（全<%= @items.count %>件）</p>
+    </div>
+    <div class="item-list">
+      <% @items.each do |item| %>
+      <div class="items">
+        <%= image_tag item.get_image(200,200)%>
+        <h3 class="over-flow"><%= link_to item.name, public_item_path(item.id) %></h3>
+        <p>¥<%= item.price %></p>
+      </div>
+      <% end %>
+    </div>
+    <div class="paginate">
+       <%= paginate @items %>
+    </div>
+  </div>
+</div>
