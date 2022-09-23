@@ -4,7 +4,7 @@ class CartItem < ApplicationRecord
   
   validates :item_id, uniqueness: true
   
-  def total_price
-    self.item.price*self.amount
+  def subtotal
+    item.with_tax_price * amount
   end
 end

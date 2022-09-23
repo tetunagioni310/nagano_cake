@@ -4,7 +4,7 @@
     <tr class="form-title">
       <td><%= f.label :name, "ジャンル名" %></td>
       <td><%= f.text_field :name, placeholder: "ジャンル名", class: "form-size" %></td>
-      <td><%= f.submit "新規登録", class: "btn2 btn-color1" %></td>
+      <td><%= f.submit "新規登録", class: "btn btn-new-record" %></td>
     </tr>
   </table>
 <% end %>
@@ -19,7 +19,7 @@
     <tr>
       <td><%= genre.name %></td>
       <td>
-          <%= link_to "編集する", " /admin/genres/#{genre.id}/edit", class: "btn3 btn-color1" %>
+          <%= link_to "編集する", " /admin/genres/#{genre.id}/edit", class: "btn btn-edit" %>
       </td>
     </tr> 
     <% end %>

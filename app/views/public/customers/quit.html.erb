@@ -1,0 +1,8 @@
+<section class="is-quit">
+  <h1>本当に退会しますか？</h1>
+  <p>退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</p>
+  <tr>
+    <td><%= link_to "退会しない", root_path, class: "btn btn-normal" %></td>
+    <td><%= link_to "退会する", withdrawal_public_customers_path, method: :patch, class: "btn btn-is-delete margin-left3" %></td>
+  </tr>
+</section>

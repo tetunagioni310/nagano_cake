@@ -1,0 +1,36 @@
+class Public::CustomersController < ApplicationController
+  
+  def edit
+    @customer = Customer.find_by(id: current_customer.id)
+  end
+
+  def show
+    @customer = Customer.find(params[:id])
+  end
+  
+  def update
+    @customer = Customer.find_by(id: params[:id])
+    if @customer.update(customer_params)
+     redirect_to public_customer_path(@customer.id)
+    else
+     render 'edit'
+    end
+  end
+  
+  def quit
+  end
+  
+  def withdrawal
+    @customer = Customer.find_by(id: current_customer.id)
+    @customer.is_deleted = "true"
+    @customer.save
+    reset_session
+    redirect_to root_path
+  end
+  
+  private
+  
+  def customer_params
+    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:email,:password,:postal_code,:address,:telephone_number,:is_deleted)
+  end
+end

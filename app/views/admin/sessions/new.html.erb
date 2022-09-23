@@ -1,15 +1,15 @@
   <h2>管理者ログイン</h2>
   <%= form_with model: @admin, url: admin_session_path, method: :post do |f| %>
-  <dl class="form">
+  <dl class="flex">
 		<dt class="form-title"><%= f.label :email, "メールアドレス" %></dt>
 		<dd><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-size2" %></dd>
 	</dl>
-	<dl class="form">
+	<dl class="flex">
 		<dt class="form-title"><%= f.label :password, "パスワード" %></dt>
 		<dd><%= f.password_field :password, autocomplete: "current-password", class: "form-size2" %></dd>
 	</dl>
-	<dl class="form transmission">
+	<dl class="flex">
 		<dt class="form-title"></dt>
-		<dd><%= f.submit "ログイン", class: "btn btn-color2" %></dd>
+		<dd><%= f.submit "ログイン", class: "btn btn-sign-in" %></dd>
 	</dl>
 	<% end %>

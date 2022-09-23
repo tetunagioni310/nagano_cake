@@ -1,35 +1,68 @@
-<div>
+<div class="cart-item-index">
+<div class="flex between">
   <h1>ショッピングカート</h1>
+  <%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class: "btn btn-delete-all" %>
 </div>
-<table border="1">
-  <tr>
-    <td>商品名</td>
-    <td>単価（税込）</td>
-    <td>数量</td>
-    <td>小計</td>
-    <td></td>
-  </tr>
 
+<table border="1" class="table2">
+  <thead>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></t>
+  </thead>
+
+  <tbody>
   <% @cart_items.each do |cart_item| %>
   <tr>
     <td>
       <%= cart_item.item.name %>
     </td>
     <td>
-      <%= cart_item.item.tax_included %>
+      <%= cart_item.item.with_tax_price %>
     </td>
     <td>
        <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
-            <%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4,'5': 5}, { include_blank: '個数選択'}, required:true %>
-            <%= f.hidden_field :item_id, value: cart_item.id %>
+            <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
+            <%= f.hidden_field :item_id, value: cart_item.item.id %>
             <%= f.hidden_field :customer_id, :value => current_customer.id %>
             <%= f.submit "変更" %>
        <% end %>
     </td>
-    <td><%= cart_item.total_price %></td>
-    <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete %></td>
+    <td><%= cart_item.subtotal %></td>
+    <% @total_price  +=  cart_item.subtotal %>
+    <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, class: "btn btn-delete" %></td>
   </tr>
   <% end %>
-
-</table>
+  </tbody>
+  </table>
+  
+   <table class="total">
+     <tr>
+       
+       <td>
+         <table>
+          <tr>
+            <td><%= link_to "買い物を続ける", public_items_path, class: "btn-normal" %></td>
+          </tr>
+         </table>
+       </td>
+         
+       <td  class="total-price-cel">
+         <table border="1" class="total-price">
+          <tr>
+            <th>合計金額</th>
+            <td><%= @total_price %></td>
+          </tr>
+         </table>
+       </td>
+       
+      </tr>
+   </table>
+    
+   <div class="total">
+     <div class="margin-auto2"><%= link_to "情報入力に進む", "#", class: "btn btn-new-record" %></div>
+   </div>
+</div>
 

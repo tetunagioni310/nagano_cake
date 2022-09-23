@@ -9,8 +9,8 @@ class Customer < ApplicationRecord
   
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :last_name_kana, presence: true, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/ }
-  validates :first_name_kana, presence: true, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/ }
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
   validates :email, presence: true, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i }
   validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
   validates :address, presence: true
@@ -18,6 +18,10 @@ class Customer < ApplicationRecord
 
   def full_name
     self.last_name + "" + self.first_name
+  end
+  
+  def full_name_kana
+    self.last_name_kana + "" + self.first_name_kana
   end
   
   def is_deleted?
