@@ -33,7 +33,7 @@
         <table>
           <tr>
             <td>
-              <%= f.select :amount, *[1..5], { include_blank: '個数選択'}, required:true %>
+              <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
               <%= f.hidden_field :item_id, value: @item.id %>
               <%= f.hidden_field :customer_id, :value => current_customer.id %>
             </td>

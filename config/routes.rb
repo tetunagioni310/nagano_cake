@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  
+
   root to: "public/homes#top"
 
   namespace :public do
     get 'homes/about', to: 'homes#about'
+    
+    resources :orders, only: [:index,:show,:new,:create] do
+      collection do
+        get 'thanks'
+        post 'log'
+      end
+    end
+    
+    resources :addresses, only: [:index,:edit,:create,:destroy,:update]
     resources :genres, only: [:show]
     resources :items, only: [:index,:show]
     resources :customers, only: [:edit,:update,:show] do
@@ -12,7 +21,7 @@ Rails.application.routes.draw do
       patch 'withdrawal'
       end
     end
-    
+
     resources :cart_items, only: [:index,:create,:destroy,:update] do
     collection do
       delete 'destroy_all'

@@ -32,7 +32,7 @@
     </td>
     <td><%= cart_item.subtotal %></td>
     <% @total_price  +=  cart_item.subtotal %>
-    <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, class: "btn btn-delete" %></td>
+    <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, data: {confirm: "本当にしますか？"}, class: "btn btn-delete" %></td>
   </tr>
   <% end %>
   </tbody>
@@ -62,7 +62,7 @@
    </table>
     
    <div class="total">
-     <div class="margin-auto2"><%= link_to "情報入力に進む", "#", class: "btn btn-new-record" %></div>
+     <div class="margin-auto2"><%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-new-record" %></div>
    </div>
 </div>
 

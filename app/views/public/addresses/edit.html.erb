@@ -1,0 +1,29 @@
+<h1>配送編集</h1>
+
+<%= form_with model: @address, url: public_address_path, method: :patch do |f| %>
+<%= render "public/shared/error_messages", resource: @address %>
+
+<div class="flex margin-top">
+  <table class="table4">
+  <tr>
+    <td>郵便番号（ハイフンなし）</td>
+    <td colspan="2"><%= f.text_field :postal_code, placeholder: "0000000", class: "form-size2" %></td>
+  </tr>
+  
+  <tr>
+    <td>住所</td>
+    <td colspan="2"><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-size3" %></td>
+  </tr>
+  
+  <tr>
+    <td>宛名</td>
+    <td>
+      <%= f.text_field :name, placeholder: "令和道子", class: "form-size2" %>
+      <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    </td>
+    <td><%= f.submit "変更内容を保存", class: "btn btn-new-record" %></td>
+  </tr>
+</table>
+
+</div>
+<% end %>

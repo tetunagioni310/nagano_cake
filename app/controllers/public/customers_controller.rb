@@ -1,15 +1,16 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   
   def edit
-    @customer = Customer.find_by(id: current_customer.id)
+    @customer = current_customer
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
   
   def update
-    @customer = Customer.find_by(id: params[:id])
+    @customer = current_customer
     if @customer.update(customer_params)
      redirect_to public_customer_path(@customer.id)
     else
@@ -21,7 +22,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdrawal
-    @customer = Customer.find_by(id: current_customer.id)
+    @customer = customer_params
     @customer.is_deleted = "true"
     @customer.save
     reset_session
