@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_230317) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "order_datails", force: :cascade do |t|
+  create_table "order_details", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "order_id", null: false
     t.integer "purchase_price", null: false
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_230317) do
     t.string "postal_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "name", default: "", null: false
-    t.integer "shipping_cost", null: false
+    t.integer "shipping_cost", default: 800, null: false
     t.integer "bill", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "status", default: 0, null: false

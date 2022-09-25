@@ -319,6 +319,8 @@
   background-color: lightgray;
   padding: 8px;
   text-align: left;
+  min-width: 100px;
+  max-width: 300px;
  }
 
  td {
@@ -520,4 +522,13 @@
 .top-items {
  text-align: right;
  width: 1000px;
+}
+
+/*order*/
+.log-main-table {
+ width: 850px;
+}
+
+.log-total {
+ width: 200px;
 }
