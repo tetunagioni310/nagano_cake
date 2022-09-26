@@ -1,5 +1,5 @@
   <h2>新規会員登録</h2>
-
+  <br>
   <%= form_with model: @customer, url: customer_registration_path, method: :post do |f| %>
   <%= render "public/shared/error_messages", resource: @customer %>
   
@@ -59,9 +59,10 @@
   </dl>
   
 <% end %>
-
+  <br>
 <section>
   <h2>既に登録済みの方</h2>
+  <br>
   <p><%= link_to "こちら", customer_session_path %>　からログインしてください</p>
 </section>
 

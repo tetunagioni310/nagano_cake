@@ -10,17 +10,21 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
+    @order = Order.find_by(id: params[:id])
+    @order_details = OrderDetail.where(order_id: params[:id])
+    @subtotal = 0
+    @total_price = 0
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
-    @order_detail = OrderDetail.new
     current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
       @order_detail.item_id = cart_item.item_id
       @order_detail.order_id = @order.id
       @order_detail.purchase_price = cart_item.item.with_tax_price
@@ -42,7 +46,7 @@ class Public::OrdersController < ApplicationController
       @order.bill = @order.shipping_cost
       @total_price = 0
       @bill = 0
-      
+
     elsif params[:order][:address_option] == "1"
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
@@ -50,14 +54,14 @@ class Public::OrdersController < ApplicationController
       @order.name = @address.name
       @total_price = 0
       @bil = 0
-      
+
     elsif params[:order][:address_option] == "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
       @total_price = 0
       @bill = 0
-      
+
     end
   end
 
@@ -65,9 +69,5 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_id,:postal_code,:address,:name,:shipping_cost,:bill,:payment_method)
-  end
-  
-  def order_detail_params
-    params.require(:order).permit(:item_id,:order_id,:purchase_price,:amount)
   end
 end

@@ -1,5 +1,7 @@
   <h2>ログイン</h2>
+  <br>
   <h3>会員の方はこちらからログイン</h3>
+  <br>
   <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>
   
   <dl class="form-row flex">
@@ -16,11 +18,10 @@
 		<dd><%= f.submit "ログイン", class: "btn btn-sign-in" %></dd>
 	</dl>
 	<% end %>
-	
+	<br>
 	<h3>会員登録がお済みでない方</h3>
 	<p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行なってください。</p>
-	
+	<br>
 	<h3>管理者用</h3>
-	<p><%= link_to "こちら", admin_session_path %> へ</p> 
-
-
+	<p><%= link_to "こちら", admin_session_path %>　へ</p> 
+	<br>

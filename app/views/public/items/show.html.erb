@@ -27,7 +27,7 @@
       <section class="item-detail">
         <h1><%= @item.name%></h1>
         <p><%= @item.introduction %></p>
-        <p>¥<%= @item.with_tax_price %>（税込）</p>
+        <p>¥<%= (@item.with_tax_price).to_s(:delimited) %>（税込）</p>
       
         <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
         <table>
