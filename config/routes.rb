@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit,:update]
     resources :genres, only: [:index,:show,:edit,:create,:destroy,:update]
     resources :items
-    resources :orders, only: [:index,:show]
+    resources :orders, only: [:index,:show,:update]
+    resources :order_details, only: [:show,:update]
   end
 
   # 顧客用

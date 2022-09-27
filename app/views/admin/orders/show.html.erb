@@ -1,2 +1,35 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div>
+<h1><%= @customer.full_name %>さんの注文履歴</h1>
+<table>
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>注文個数</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_detail_path(order.id) %></td>
+
+      <!--注文履歴詳細リスト取得-->
+      <% order_details = OrderDetail.where(order_id: order.id) %>
+
+      <!--注文個数取得-->
+      <% order_details.each do |order_detail| %>
+        <% @amount += order_detail.amount %>
+      <% end %>
+
+      <td><%= @amount %></td>
+
+      <!--個数リセット-->
+      <% @amount = 0 %>
+
+      <td><%= order.status_i18n %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @orders %>
+</div>

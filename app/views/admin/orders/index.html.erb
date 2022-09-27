@@ -13,13 +13,13 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S')%></td>
+      <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
       
-      <!--注文会員-->
-      <% customer = Customer.find_by(id: order.customer_id)%>
+      <!--注文会員取得-->
+      <% @customer = Customer.find_by(id: order.customer_id)%>
       
       <td>
-        <%= customer.full_name %>
+        <%= link_to @customer.full_name, admin_order_path(order.id) %>
       </td>
       
       <!--注文詳細リスト取得-->
@@ -42,4 +42,5 @@
     <% end %>
   </tbody>
   </table>
+  <%= paginate @orders %>
 </div>

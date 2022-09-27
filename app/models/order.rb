@@ -9,7 +9,10 @@ class Order < ApplicationRecord
     confirm:              1, #入金確認
     making:               2, #製作中
     preparing_to_ship:    3, #発送準備中
-    shipped:              4 #発送済み
+    shipped:              4  #発送済み
   }
   
+  def full_address
+    "〒" + self.postal_code + " " + self.address + " " + self.name
+  end
 end
