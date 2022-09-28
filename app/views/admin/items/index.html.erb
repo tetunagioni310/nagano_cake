@@ -1,9 +1,10 @@
-<div class="flex between">
+<div class="my-5 d-flex justify-content-between">
   <h1>商品一覧</h1>
-  <div><%= link_to "新規登録", new_admin_item_path, class: "btn btn-new-record" %></div>
+  <div><%= link_to "新規登録", new_admin_item_path, class: "btn btn-success" %></div>
 </div>
 
-<table class="table2">
+<table class="table table-borderless">
+  <thead class="table-dark">
     <tr>
       <th>商品ID</th>
       <th>商品名</th>
@@ -11,6 +12,8 @@
       <th>ジャンル</th>
       <th>ステータス</th>
     </tr>
+  </thead>
+
     <% @items.each do |item| %>
     <tr>
       <td>
@@ -31,3 +34,5 @@
     </tr>
     <% end %>
   </table>
+
+    <%= paginate @items %>

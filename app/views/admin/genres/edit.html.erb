@@ -1,11 +1,11 @@
-<h2>ジャンル編集</h2>
+<h2 class="my-5">ジャンル編集</h2>
 
 <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
-    <table>
+    <table class="table table-borderless w-50">
       <tr class="form-title">
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name, placeholder: "ジャンル名", class: "form-size" %></td>
-        <td><%= f.submit "変更を保存", class: "btn btn-edit" %></td>
+        <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
       </tr>
     </table>
 <% end %>

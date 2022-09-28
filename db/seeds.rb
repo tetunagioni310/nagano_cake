@@ -37,11 +37,73 @@ Genre.create!(
 )
 
 Item.create!(
-   {
-      name: 'いちごのショートケーキ（ホール）',
-      genre_id: '1',
-      introduction: '栃木県のとちおとめを贅沢に使用しています。',
-      price: '2500',
-      is_active: 'true'
-   }
+   
+    [
+       { name: 'いちごのショートケーキ（ホール）',
+         genre_id: '1',
+         introduction: '栃木県のとちおとめを贅沢に使用しています。',
+         price: '2500',
+         is_active: 'true' },
+      
+       { name: 'ザッハトルテ',
+         genre_id: '1',
+         introduction: '',
+         price: '2900',
+         is_active: 'true' },
+      
+       { name: 'モンブラン',
+         genre_id: '1',
+         introduction: '',
+         price: '500',
+         is_active: 'true' },
+         
+       { name: 'フルーツタルト',
+         genre_id: '1',
+         introduction: '',
+         price: '2900',
+         is_active: 'true' },
+         
+       { name: 'バナナケーキ',
+         genre_id: '1',
+         introduction: '',
+         price: '980',
+         is_active: 'true' },
+         
+       { name: '洋梨のチーズタルト',
+         genre_id: '1',
+         introduction: '',
+         price: '1200',
+         is_active: 'true' },
+         
+       { name: '卵たっぷり濃厚プリン',
+         genre_id: '2',
+         introduction: '',
+         price: '500',
+         is_active: 'true' },
+         
+       { name: 'かぼちゃのプリン',
+         genre_id: '2',
+         introduction: '',
+         price: '480',
+         is_active: 'true' },
+         
+       { name: '紅茶のクッキー',
+         genre_id: '3',
+         introduction: '',
+         price: '800',
+         is_active: 'true' },
+         
+       { name: 'マカロンセット（８個）',
+         genre_id: '1',
+         introduction: '',
+         price: '1200',
+         is_active: 'true' },
+         
+       { name: 'マカロンセット（16個）',
+         genre_id: '1',
+         introduction: '',
+         price: '2000',
+         is_active: 'true' }
+    ]
+    
 )

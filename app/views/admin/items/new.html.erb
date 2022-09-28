@@ -1,47 +1,53 @@
-<h1>商品新規登録</h1>
+<h1 class="mb-5 mt-5">商品新規登録</h1>
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 <%= render "admin/shared/error_messages", resource: @item %>
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :image, "商品画像" %></dt>
-    <dd><%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %></dd>
-  </dl>
 
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :name, "商品名" %></dt>
-    <dd><%= f.text_field :name, placeholder: "商品名", class: "form-size2" %></dd>
-  </dl>
+  <div class="form-group row">
+    <%= f.label :image, "商品画像", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %>
+    </div>
+  </div>
 
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :introduction, "商品説明" %></dt>
-    <dd><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-size4" %></dd>
-  </dl>
+  <div class="form-group row">
+    <%= f.label :name, "商品名", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, placeholder: "商品名", class: "" %>
+    </div>
+  </div>
 
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :genre_id, "ジャンル" %></dt>
-    <dd>
-      <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"}, class: "form-size2" %>
-    </dd>
-  </dl>
+  <div class="form-group row">
+    <%= f.label :introduction, "商品説明", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "" %>
+    </div>
+  </div>
 
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :price, "税抜価格"  %></dt>
-    <dd class="flex"><%= f.text_field :price, placeholder: "1000", class: "form-size2" %>円</dd>
-  </dl>
+  <div class="form-group row">
+    <%= f.label :genre_id, "ジャンル", class: "col-sm-2 col-form-label"  %>
+    <div class="col-sm-10">
+      <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"}, class: "" %>
+    </div>
+  </div>
 
-  <dl class="flex form-row">
-    <dt class="form-title"><%= f.label :is_active, "販売ステータス" %></dt>
-    <dd>
+  <div class="form-group row">
+    <%= f.label :price, "税抜価格", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :price, placeholder: "1000", class: "" %>円
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :is_active, "販売ステータス", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
       <%= f.radio_button :is_active, 'true' %>
       <%= f.label :is_active, '販売中', value: 'true' %>
 
       <%= f.radio_button :is_active, 'false' %>
       <%= f.label :is_active, '販売停止中', value: 'false' %>
-    </dd>
-  </dl>
-
-  <dl class="flex form-row">
-    <dt class="form-title"></dt>
-    <dd><%= f.submit "新規登録", class: "btn btn-new-record" %></dd>
-  </dl>
+    </div>
+  </div>
+  
+ 
+      <%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>
-

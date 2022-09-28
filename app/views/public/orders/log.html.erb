@@ -49,7 +49,7 @@
 <br>
 <br>
 <h1>お届け先</h1>
-<%= @order.postal_code %> <%= @order.address%> <%= @order.name %>
+<%= @order.full_address %>
 
 <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
 <%= f.hidden_field :customer_id, :value => current_customer.id %>

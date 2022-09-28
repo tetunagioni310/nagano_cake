@@ -1,7 +1,6 @@
-<div>
-<h1><%= @customer.full_name %>さんの注文履歴</h1>
-<table>
-  <thead>
+<h2 class="my-5"><%= @customer.full_name %>さんの注文履歴</h1>
+<table class="table table-borderless">
+  <thead class="border-top border-bottom">
     <tr>
       <th>購入日時</th>
       <th>注文個数</th>
@@ -32,4 +31,3 @@
   </tbody>
 </table>
 <%= paginate @orders %>
-</div>

@@ -1,67 +1,76 @@
-<h1><%= @customer.full_name %></h1>
+<h3 class="my-5"><%= @customer.full_name %>さんの会員情報編集</h3>
 <%= render "admin/shared/error_messages", resource: @customer %>
 
-  <dl class="flex form-row">
-    <dt class="form-title">会員ID</dt>
-    <dd><%= @customer.id %></dd>
-  </dl>
-  
+<table class="table table-borderless w-75 mb-5">
+  <tr>
+    <th>会員ID</th>
+    <td><%= @customer.id %></td>
+  </tr>
+
   <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
-  
-  <dl class="flex">
-    <dt class="form-title">氏名</dt>
-    <dd>
-      <ul class="flex list-none">
-        <li><%= f.text_field :last_name, class: "form-size" %></li>
-        <li class="margin-left"><%= f.text_field :first_name, class: "form-size" %></li>
-      </ul>
-    </dd>
-  </dl>
-  
-  <dl class="flex">
-    <dt class="form-title">フリガナ</dt>
-    <dd>
-      <ul class="flex list-none">
-        <li><%= f.text_field :last_name_kana, class: "form-size" %></li>
-        <li class="margin-left"><%= f.text_field :first_name_kana, class: "form-size" %></li>
-      </ul>
-    </dd>
-  </dl>
-  
-  <dl class="flex">
-    <dt class="form-title">郵便番号</dt>
-    <dd><%= f.text_field :postal_code, class: "form-size" %></dd>
-  </dl>
-  
-  <dl class="flex">
-    <dt class="form-title">住所</dt>
-    <dd><%= f.text_field :address, class: "form-size3" %></dd>
-  </dl>
-  
-  <dl class="flex">
-    <dt class="form-title">電話番号</dt>
-    <dd><%= f.telephone_field :telephone_number, class: "form-size" %></dd>
-  </dl>
-  
-  <dl class="flex">
-    <dt class="form-title">メールアドレス</dt>
-    <dd><%= f.email_field :email, class: "form-size" %></dd>
-  </dl>
-  
-  <dl class="flex form-row">
-    <dt class="form-title">会員ステータス</dt>
-    <dd>
+
+  <tr>
+    <th>氏名</th>
+    <td>
+      <div class="row">
+        <div class="col">
+          <%= f.text_field :last_name, class: "form-control", placeholder: "山田" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :first_name, class: "form-control", placeholder: "花子"  %>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th>フリガナ</th>
+    <td>
+      <div class="row">
+        <div class="col">
+          <%= f.text_field :last_name_kana, class: "form-control", placeholder: "ヤマダ" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :first_name_kana, class: "form-control", placeholder: "ハナコ"  %>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th>郵便番号</th>
+    <td><%= f.text_field :postal_code, class: "form-control", placeholder: "1500041" %></td>
+  </tr>
+
+  <tr>
+    <th>住所</th>
+    <td><%= f.text_field :address, class: "form-control", placeholder: "東京都渋谷区神南一丁目19-11 パークウェースクエア24階" %></td>
+  </tr>
+
+  <tr>
+    <th>電話番号</th>
+    <td><%= f.telephone_field :telephone_number, class: "form-control", placeholder: "0368694700" %></td>
+  </tr>
+
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= f.email_field :email, class: "form-control", placeholder: "hoge@example.com" %></td>
+  </tr>
+
+  <tr>
+    <th>会員ステータス</th>
+    <td>
       <%= f.radio_button :is_deleted, 'false' %>
       <%= f.label :is_deleted, '有効', value: 'false' %>
-      
-      
+
       <%= f.radio_button :is_deleted, 'true' %>
       <%= f.label :is_deleted, '退会', value: 'true' %>
-    </dd>
-  </dl>
-  
-  <dl class="flex form-row">
-    <dt class="form-title"></dt>
-    <dd><%= f.submit "変更を保存", class: "btn btn-edit" %></dd>
-  </dl>
+    </td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
+  </tr>
   <% end %>
+
+</table>

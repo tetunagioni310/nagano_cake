@@ -1,5 +1,5 @@
-<h1><%= @customer.full_name %>の会員詳細</h1>
-<table>
+<h2 class="my-5"><%= @customer.full_name %>の会員詳細</h2>
+<table class="table table-borderless">
   <tr>
     <td>会員ID</td>
     <td><%= @customer.id %></td>
@@ -36,8 +36,7 @@
 <table>
   <tr>
     <td></td>
-    <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-edit" %></td>
-    <%  %>
+    <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %></td>
     <td><%= link_to "注文履歴一覧を見る", "#", class: "btn btn-normal" %></td>
   </tr>
 </table>

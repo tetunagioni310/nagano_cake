@@ -1,13 +1,15 @@
-<h1>注文履歴詳細</h1>
+<div class="row m-0 p-0">
+  <div class="col-md-9">
+    <h2 class="my-3">注文履歴詳細</h2>
 
-<table style="background-color: green;">
+<table>
     <tr>
-      <table style="background-color: red;">
+      <table class="table table-borderless w-100">
       <tr>
         <td><strong>購入者</strong></td>
         <td><%= @customer.full_name %></td>
       </tr>
-      
+
       <tr>
         <td><strong>注文日</strong></td>
         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -33,58 +35,65 @@
         </td>
       </tr>
     </table>
+
     </tr>
   <br>
     <tr>
       <td>
-        <table style="background-color: blue;">
-        <tr>
-          <td><strong>商品名</strong></td>
-          <td><strong>単価（税込）</strong></td>
-          <td><strong>数量</strong></td>
-          <td><strong>小計</strong></td>
-          <td><strong>制作ステータス</strong></td>
-        </tr>
-
-        <% @order_details.each do |order_detail| %>
-        <tr>
-          <td><%= order_detail.item.name  %></td>
-          <td><%= order_detail.purchase_price.to_s(:delimited) %></td>
-          <td><%= order_detail.amount %></td>
-          <td>
-            <% @item_total = (order_detail.purchase_price * order_detail.amount) %>
-            <%= @item_total.to_s(:delimited)%>
-            <% @total_price += @item_total %>
-          </td>
-          <td>
-            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-              <%= f.select :make_status, OrderDetail.make_statuses.keys.map {|k| [I18n.t("enums.order_detail.make_status.#{k}"), k]} %>
-              <%= f.submit "更新" %>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
+        <table class="table table-borderless">
+          <thead class="table-dark">
+            <tr>
+              <th><strong>商品名</strong></th>
+              <th><strong>単価（税込）</strong></th>
+              <th><strong>数量</strong></th>
+              <th><strong>小計</strong></th>
+              <th><strong>制作ステータス</strong></th>
+            </tr>
+          </thead>
+          <tbody class="border-bottom">
+            <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name  %></td>
+              <td><%= order_detail.purchase_price.to_s(:delimited) %></td>
+              <td><%= order_detail.amount %></td>
+              <td>
+                <% @item_total = (order_detail.purchase_price * order_detail.amount) %>
+                <%= @item_total.to_s(:delimited)%>
+                <% @total_price += @item_total %>
+              </td>
+              <td>
+                <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
+                  <%= f.select :make_status, OrderDetail.make_statuses.keys.map {|k| [I18n.t("enums.order_detail.make_status.#{k}"), k]} %>
+                  <%= f.submit "更新" %>
+                <% end %>
+              </td>
+             </tr>
+             <% end %>
+          </tbody>
        </table>
-      </td>
-      
-      <td>
-        <table style="background-color: yellow;">
-          <tr>
-            <td><strong>商品合計</strong></td>
-            <td><%= @total_price %></td>
-          </tr>
-  
-          <tr>
-            <td><strong>送料</strong></td>
-            <td><%= @order.shipping_cost %></td>
-          </tr>
-          <tr>
-            <td><strong>請求金額</strong></td>
-            <td><%= @order.bill %></td>
-          </tr>
-      </table>
       </td>
     </tr>
 </table>
 
 
+
+</div>
+
+<div class="col-md-3 d-flex align-items-end">
+  <table class="table table-borderless">
+          <tr>
+            <td class="h5"><strong>商品合計</strong></td>
+            <td><%= @total_price.to_s(:delimited) %></td>
+          </tr>
+
+          <tr>
+            <td class="h5"><strong>送料</strong></td>
+            <td><%= @order.shipping_cost %></td>
+          </tr>
+          <tr class="h5">
+            <td><strong>請求金額</strong></td>
+            <td><%= @order.bill.to_s(:delimited) %></td>
+          </tr>
+</table>
+</div>
+</div>
