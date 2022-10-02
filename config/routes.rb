@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   namespace :public do
     get 'homes/about', to: 'homes#about'
-    
+
     resources :orders, only: [:index,:show,:new,:create] do
       collection do
         get 'thanks'
         post 'log'
       end
     end
-    
+
     resources :addresses, only: [:index,:edit,:create,:destroy,:update]
     resources :genres, only: [:show]
     resources :items, only: [:index,:show]
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :customers, only: [:index, :show, :edit,:update]
+    resources :customers, only: [:index, :show, :edit,:update] 
     resources :genres, only: [:index,:show,:edit,:create,:destroy,:update]
     resources :items
     resources :orders, only: [:index,:show,:update]

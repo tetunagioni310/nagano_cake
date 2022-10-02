@@ -1,17 +1,21 @@
-<h1>会員一覧</h1>
-<table class="table ">
-  <tr>
-    <th>会員ID</th>
-    <th>氏名</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
-  </tr>
-  <% @customers.each do |customer| %>
-  <tr>
-    <td><%= customer.id %></td>
-    <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
-    <td><%= customer.email %></td>
-    <td><%= customer.is_deleted? %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="col-sm-6 m-sm-auto">
+  <h1 class="my-5">会員一覧</h1>
+  <table class="table ">
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.is_deleted? %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+</div>

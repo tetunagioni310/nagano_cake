@@ -1,9 +1,12 @@
-<h1>商品詳細</h1>
-<div class="flex">
-  <div class="margin-top">
+<div class="container">
+ <div class="row-md-12 block-center my-5">
+
+  <h1 class="my-5">商品詳細</h1>
+  <div class="col-md-11 d-flex m-auto ">
+  <div class="mr-5">
     <%= image_tag @item.get_image(300, 300) %>
   </div>
-  
+
   <table class="table table-borderless">
     <tr>
       <td>商品名</td>
@@ -29,8 +32,9 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= link_to "編集する", edit_admin_item_path, class: "btn btn-edit" %></td>
+      <td><%= link_to "編集する", edit_admin_item_path, class: "btn btn-success" %></td>
     </tr>
   </table>
-
+  </div>
+ </div>
 </div>

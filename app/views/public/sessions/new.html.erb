@@ -1,27 +1,42 @@
-  <h2>ログイン</h2>
-  <br>
-  <h3>会員の方はこちらからログイン</h3>
+<div class="container">
+ <div class="row">
+	<div class="col-md-10 mr-auto">
+
+  <h2 class="mt-5">ログイン</h2>
+
+  <h3 class="mt-4">会員の方はこちらからログイン</h3>
   <br>
   <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>
-  
-  <dl class="form-row flex">
-		<dt class="form-title"><%= f.label :email, "メールアドレス" %></dt>
-		<dd><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-size3" %></dd>
-	</dl>
-	
-	<dl class="form-row flex">
-		<dt class="form-title"><%= f.label :password, "パスワード" %></dt>
-		<dd><%= f.password_field :password, autocomplete: "current-password", class: "form-size3" %></dd>
-	</dl>
-	<dl class="form-row-submit flex">
-		<dt class="form-title"></dt>
-		<dd><%= f.submit "ログイン", class: "btn btn-sign-in" %></dd>
-	</dl>
+
+  <div class="form-group row">
+		<%= f.label :email, "メールアドレス", class: "col-md-3 col-form-label" %>
+		<div class="col-md-4">
+			<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= f.label :password, "パスワード", class: "col-md-3 col-form-label" %>
+		<div class="col-md-4"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></div>
+	</div>
+
+	<div class="form-group row mt-4">
+		<div class="col-form-label col-md-3"></div>
+		<div class="col-md-4"><%= f.submit "ログイン", class: "btn btn-success" %></div>
+	</div>
 	<% end %>
-	<br>
-	<h3>会員登録がお済みでない方</h3>
-	<p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行なってください。</p>
-	<br>
-	<h3>管理者用</h3>
-	<p><%= link_to "こちら", admin_session_path %>　へ</p> 
-	<br>
+
+
+	<div class="mt-5">
+		<h3>会員登録がお済みでない方</h3>
+		<p class="mt-3"><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行なってください。</p>
+	</div>
+
+	<div class="mt-5">
+		<h3>管理者用</h3>
+		<p class="mt-3"><%= link_to "こちら", admin_session_path %>　へ</p>
+	</div>
+
+	</div>
+ </div>
+</div>

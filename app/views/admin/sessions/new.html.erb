@@ -1,16 +1,24 @@
+  <div class="container">
+  <div class="row-md-12 p-5 m-5">
+  <div class="col-md-8 m-auto p-5">
   <h2>管理者ログイン</h2>
   <br>
+  <table class="table table-borderless">
   <%= form_with model: @admin, url: admin_session_path, method: :post do |f| %>
-  <dl class="flex">
-		<dt class="form-title"><%= f.label :email, "メールアドレス" %></dt>
-		<dd><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-size2" %></dd>
-	</dl>
-	<dl class="flex">
-		<dt class="form-title"><%= f.label :password, "パスワード" %></dt>
-		<dd><%= f.password_field :password, autocomplete: "current-password", class: "form-size2" %></dd>
-	</dl>
-	<dl class="flex">
-		<dt class="form-title"></dt>
-		<dd><%= f.submit "ログイン", class: "btn btn-sign-in" %></dd>
-	</dl>
+  <tr class="form-group">
+		<th><%= f.label :email, "メールアドレス" %></th>
+		<td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %></td>
+	</tr>
+	<tr class="form-group">
+		<th><%= f.label :password, "パスワード" %></th>
+		<td><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
+	</tr>
+	<tr class="form-group">
+		<th></th>
+		<td><%= f.submit "ログイン", class: "btn btn-success" %></td>
+	</tr>
 	<% end %>
+	</table>
+	</div>
+	</div>
+	</div>

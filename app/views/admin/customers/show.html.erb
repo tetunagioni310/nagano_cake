@@ -1,5 +1,7 @@
-<h2 class="my-5"><%= @customer.full_name %>の会員詳細</h2>
-<table class="table table-borderless">
+<div class="row">
+<div class="col-md-5 m-auto py-5">
+<h2 class="my-5 text-center"><%= @customer.full_name %>の会員詳細</h2>
+<table class="table table-borderless col-sm-12">
   <tr>
     <td>会員ID</td>
     <td><%= @customer.id %></td>
@@ -30,13 +32,16 @@
       <%= @customer.is_deleted? %>
     </td>
   </tr>
-  
+
 </table>
 
-<table>
-  <tr>
-    <td></td>
-    <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %></td>
-    <td><%= link_to "注文履歴一覧を見る", "#", class: "btn btn-normal" %></td>
-  </tr>
-</table>
+
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6"><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success w-75" %></div>
+    <div class="col-3"></div>
+  </div>
+
+</div>
+</div>

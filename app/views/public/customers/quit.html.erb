@@ -1,8 +1,15 @@
-<section class="is-quit">
-  <h1>本当に退会しますか？</h1>
-  <p>退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</p>
-  <tr>
-    <td><%= link_to "退会しない", root_path, class: "btn btn-normal" %></td>
-    <td><%= link_to "退会する", withdrawal_public_customers_path, method: :patch,data: {confirm: "本当にしますか？"}, class: "btn btn-is-delete margin-left3" %></td>
-  </tr>
-</section>
+<div class="container">
+  <div class="row py-5">
+    <div class="col-sm-7 m-sm-auto text-center py-5">
+      <h1 class="pt-5">本当に退会しますか？</h1>
+      <h4 class="pt-5">退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h4>
+      <div class="row py-5">
+        <div class="col-sm-10 row m-auto">
+          <div class="col-sm-5 mx-auto mt-3"><%= link_to "退会しない", root_path, class: "btn btn-success w-75" %></div>
+          <div class="col-sm-5 mx-auto mt-3"><%= link_to "退会する", withdrawal_public_customers_path, method: :patch,data: {confirm: "本当にしますか？"}, class: "btn btn-danger w-75" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

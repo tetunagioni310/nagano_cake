@@ -1,6 +1,10 @@
-<h1>注文履歴一覧</h1>
-<table border="1">
-  <thead>
+
+<div class="row">
+  <div class="col-sm-10 m-auto table-responsive">
+    <h1 class="my-5">注文履歴一覧</h1>
+  
+    <table class="table table-bordered text-nowrap">
+      
     <tr>
       <th>注文日</th>
       <th>配送先</th>
@@ -9,27 +13,33 @@
       <th>ステータス</th>
       <th>注文詳細</th>
     </tr>
-  </thead>
-
-  <tbody>
+    
     <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      
       <td>
         〒<%= order.postal_code %><br>
         <%= order.address %><br>
         <%= order.name %>
-        </td>
+      </td>
+      
       <td>
         <% order_details = OrderDetail.where(order_id: order.id )%>
         <% order_details.each do |order_detail| %>
          <%= order_detail.item.name %><br>
         <% end %>
       </td>
+      
       <td><%= order.bill.to_s(:delimited) %></td>
+      
       <td><%= order.status_i18n %></td>
-      <td><%= link_to "表示する", public_order_path(order.id), class: "btn btn-order-detail" %></td>
+      
+      <td><%= link_to "表示する", public_order_path(order.id), class: "btn btn-success" %></td>
     </tr>
     <% end %>
-  </tbody>
-</table>
+    
+    </table>
+  </div>
+
+  </div>

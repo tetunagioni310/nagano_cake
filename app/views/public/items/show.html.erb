@@ -1,49 +1,37 @@
-<div class="item-index">
-  <div class="item-left">
-    <table class="items-genre border table">
-    <tr class="border">
-        <td class="text-c">ジャンル検索</td>
-    </tr>
-    <% @genres.each do |genre| %>
-    <tr>
-      <td><%= genre.name %></td>
-    </tr>
-    <% end %>
+<div class="row py-5">
 
-    <tr>
-      <td class="tf-height"></td>
-    </tr>
-    </table>
-  </div>
-  
+  <div class="col-md-2 text-center pt-5 mt-5">
+    <div class="mb-3">ジャンル検索</div>
 
-
-  <div class="item-right">
-    <div class="item-show">
-      <div class="item-image">
-        <%= image_tag @item.get_image(300,300) %>
-      </div>
-    
-      <section class="item-detail">
-        <h1><%= @item.name%></h1>
-        <p><%= @item.introduction %></p>
-        <p>¥<%= (@item.with_tax_price).to_s(:delimited) %>（税込）</p>
-      
-        <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
-        <table>
-          <tr>
-            <td>
-              <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.hidden_field :customer_id, :value => current_customer.id %>
-            </td>
-            <td>
-              <%= f.submit 'カートに入れる', class: 'btn btn-new-record' %>
-            </td>
-          </tr>
-        </table>
-        <% end %>
-      </section>
+    <div class="d-flex flex-column">
+      <% @genres.each do |genre| %>
+        <%= link_to genre.name, public_genre_path(genre.id), class: "my-2 text-decoration-none" %>
+      <% end %>
     </div>
 </div>
+
+
+
+  <div class="col-sm-9 m-auto">
+    <div class="d-flex row mx-auto py-5 my-5 text-center">
+      <div class="col-sm-4">
+        <%= image_tag @item.get_image(300,300) %>
+      </div>
+
+      <div class="col-sm-8 text-left pl-5">
+        <h1 class="m-auto"><%= @item.name%></h1>
+        <p class="pt-sm-2 pb-sm-5"><%= @item.introduction %></p>
+        <p class="pt-sm-5">¥<%= (@item.with_tax_price).to_s(:delimited) %>（税込）</p>
+
+        <%= form_with model: @cart_item, url: public_cart_items_path, method: :post do |f| %>
+        <div>
+          <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.hidden_field :customer_id, :value => current_customer.id %>
+          <%= f.submit 'カートに入れる', class: 'btn btn-new-record' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

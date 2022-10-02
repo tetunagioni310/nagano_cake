@@ -1,49 +1,55 @@
-<h1>商品編集</h1>
-<div>
+<div class="container">
+<div class="row-sm-12 py-5">
+<div class="col-sm-8 m-auto">
+  
+  <h1 class="pb-5 text-center">商品編集</h1>
   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+  
   <%= render "admin/shared/error_messages", resource: @item %>
+    <div class="form-group row">
+      <div class="col-sm-3 col-form-label">商品画像></div>
+      <div class="col-sm-9"><%= f.file_field :image %></div>
+    </div>
 
-    <dl>
-      <dt><%= f.label :image, "商品画像" %></dt>
-      <dd><%= f.file_field :image %></dd>
-    </dl>
+    <div class="form-group row">
+      <div class="col-sm-3"><%= f.label :name, "商品名", class: "col-form-label" %></div>
+      <div class="col-sm-7"><%= f.text_field :name, class: "form-control" %></div>
+      <div></div>
+    </div>
 
-    <dl>
-      <dt><%= f.label :name, "商品名" %></dt>
-      <dd><%= f.text_field :name, class: "form-size3" %></dd>
-    </dl>
+    <div class="form-group row">
+      <div class="col-sm-3"><%= f.label :introduction, "商品説明", class: "col-form-label" %></div>
+      <div class="col-sm-7"><%= f.text_area :introduction, rows: "5", class: "form-control" %></div>
+    </div>
 
-    <dl>
-      <dt><%= f.label :introduction, "商品説明" %></dt>
-      <dd><%= f.text_area :introduction, size: "68x10" %></dd>
-    </dl>
+    <div class="form-group row">
+      <div class="col-sm-3"><%= f.label :genre_id, "ジャンル", class: "col-form-label" %></div>
+      <div class="col-sm-7"><%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"}, class: "form-control" %></div>
+    </div>
 
-    <dl>
-      <dt><%= f.label :genre_id, "ジャンル" %></dt>
-      <dd><%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"}, class: "form-size3" %></dd>
-    </dl>
+    <div class="form-group row">
+      <div class="col-sm-3"><%= f.label :price, "税抜き価格", class: "col-form-label" %></div>
+      <div class="col-sm-7"><%= f.text_field :price, class: "form-control" %></div>
+      <div class="col-form-label d-none d-sm-block">円</div>
+    </div>
 
-    <dl>
-      <dt><%= f.label :price, "税抜き価格" %></dt>
-      <dd><%= f.text_field :price, class: "form-size3" %></dd>
-    </dl>
-
-    <dl>
-      <dt></dt>
-      <dd>
-        <%= f.label :is_active, "販売ステータス" %>
-
+    <div class="form-group row">
+      <div class="col-sm-3"><%= f.label :is_active, "販売ステータス", class: "col-form-label" %></div>
+      <div class="col-sm-7">
         <%= f.label :is_active, '販売中', value: 'true' %>
         <%= f.radio_button :is_active, 'true' %>
-
+        
         <%= f.label :is_active, '販売停止中', value: 'false' %>
         <%= f.radio_button :is_active, 'false' %>
-      </dd>
-    </dl>
+      </div>
+    </div>
 
-    <dl>
-      <dt></dt>
-      <dd><%= f.submit "変更を保存", class: "btn btn-edit"  %></dd>
-    </dl>
+    <div class="form-group row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-7"><%= f.submit "変更を保存", class: "btn btn-success w-75"  %></div>
+    </div>
+    
   <% end %>
+</div>
+</div>
 </div>

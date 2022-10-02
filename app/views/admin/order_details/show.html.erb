@@ -1,4 +1,5 @@
-<div class="row m-0 p-0">
+<div class="container">
+ <div class="row m-0 p-0">
   <div class="col-md-9">
     <h2 class="my-3">注文履歴詳細</h2>
 
@@ -40,7 +41,7 @@
   <br>
     <tr>
       <td>
-        <table class="table table-borderless">
+        <table class="table table-bordered ">
           <thead class="table-dark">
             <tr>
               <th><strong>商品名</strong></th>
@@ -50,7 +51,7 @@
               <th><strong>制作ステータス</strong></th>
             </tr>
           </thead>
-          <tbody class="border-bottom">
+          <tbody>
             <% @order_details.each do |order_detail| %>
             <tr>
               <td><%= order_detail.item.name  %></td>
@@ -80,7 +81,7 @@
 </div>
 
 <div class="col-md-3 d-flex align-items-end">
-  <table class="table table-borderless">
+  <table class="table table-bordered">
           <tr>
             <td class="h5"><strong>商品合計</strong></td>
             <td><%= @total_price.to_s(:delimited) %></td>
@@ -94,6 +95,7 @@
             <td><strong>請求金額</strong></td>
             <td><%= @order.bill.to_s(:delimited) %></td>
           </tr>
-</table>
-</div>
+  </table>
+  </div>
+ </div>
 </div>

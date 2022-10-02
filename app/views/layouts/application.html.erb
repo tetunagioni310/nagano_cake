@@ -11,16 +11,21 @@
   </head>
 
   <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <%= link_to "ながのCAKE", root_path, class: "navbar-brand" %>
+    <header class="p-3 bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <% if admin_signed_in? %>
+            <%= link_to "ながのCAKE", admin_orders_path, class: "navbar-brand" %>
+          <% else%>
+            <%= link_to "ながのCAKE", root_path, class: "navbar-brand" %>
+          <% end %>
+         
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
-              <li class="nav-item active">
+              <li class="nav-iteme">
                 <%= link_to "マイページ", public_customer_path(current_customer.id), class: "nav-link" %>
               </li>
               <li class="nav-item">
@@ -63,25 +68,25 @@
               </li>
             <% end %>
           </ul>
+
           </div>
+
+
+          
+
         </nav>
-        <!--<div class="search">-->
-        <!--  <form action="自身のwebサイトURL" method="get">-->
-        <!--    <input type="search" name="search" placeholder="Search" style="width: 220px; height: 30px;">-->
-        <!--    <input type="submit" name="submit" value="検索">-->
-        <!--  </form>-->
-        <!--</div>-->
+          <!--<form class="w-25 ml-auto mr-2">-->
+          <!--  <label class="sr-only" for="keyword">サイト内検索</label>-->
+          <!--  <input type="search" class=" mr-2" placeholder="検索" id="keyword">-->
+          <!--  <button type="submit" class="btn btn-warning btn-sm">検索</button>-->
+          <!--</form>-->
     </header>
 
     <main>
-      <div class="container">
         <%= yield %>
-      </div>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-      </div>
+    <footer class="p-5">
     </footer>
   </body>
 </html>
