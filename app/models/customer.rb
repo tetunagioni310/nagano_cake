@@ -9,12 +9,12 @@ class Customer < ApplicationRecord
   
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :last_name_kana, presence: true
-  validates :first_name_kana, presence: true
-  validates :email, presence: true
-  validates :postal_code, presence: true
+  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :email, presence: true, format: { with: /\A\S+@\S+\.\S+\z/ }
+  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
   validates :address, presence: true
-  validates :telephone_number, presence: true
+  validates :telephone_number, presence: true, format: { with: /\A\d{10}\z|\A\d{11}\z/ }
 
   def full_name
     self.last_name + "" + self.first_name

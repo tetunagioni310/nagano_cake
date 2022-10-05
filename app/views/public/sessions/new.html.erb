@@ -7,6 +7,7 @@
   <h3 class="mt-4">会員の方はこちらからログイン</h3>
   <br>
   <%= form_with model: @customer, url: customer_session_path, method: :post do |f| %>
+  <%= render "public/shared/error_messages", resource: @customer %>
 
   <div class="form-group row">
 		<%= f.label :email, "メールアドレス", class: "col-md-3 col-form-label" %>

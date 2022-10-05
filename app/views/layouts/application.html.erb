@@ -25,6 +25,11 @@
           <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
+              <li class="nav-items">
+                <div class="nav-link active">
+                  ようこそ、<%= current_customer.full_name %> さん！
+                </div>
+              </li>
               <li class="nav-iteme">
                 <%= link_to "マイページ", public_customer_path(current_customer.id), class: "nav-link" %>
               </li>

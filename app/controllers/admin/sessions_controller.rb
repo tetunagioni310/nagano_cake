@@ -25,7 +25,7 @@ class Admin::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    root_path
+    new_admin_session_path
   end
 
   # If you have extra params to permit, append them to the sanitizer.

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row py-5">
+  <div class="row">
     <div class="col py-5">
     <h1 class="mb-5">配送先登録/一覧</h1>
     <%= form_with model: @address, url: public_addresses_path, method: :post do |f| %>
@@ -26,6 +26,7 @@
       </div>
     <% end %>
 
+<% if @addresses.count != 0 %>
   <div class="row">
   <div class="col-sm-18">
   <table class="table table-bordered my-5 py-5">
@@ -54,7 +55,7 @@
   </table>
   </div>
   </div>
-
+<% end %>
   </div>
  </div>
 </div>

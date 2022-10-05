@@ -1,48 +1,48 @@
 <div class="row-md-12 pb-5">
-<div class="col-sm-6 m-sm-auto pb-5">
-  <h1 class="my-5">注文履歴一覧</h1>
-  <table class="table table-borderless">
-  <thead class="border-top border-bottom">
-    <tr>
-      <th>購入日時</th>
-      <th>購入者</th>
-      <th>個数</th>
-      <th>注文ステータス</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_detail_path(order.id) %></td>
-      
-      <!--注文会員取得-->
-      <% @customer = Customer.find_by(id: order.customer_id)%>
-      
-      <td>
-        <%= link_to @customer.full_name, admin_order_path(order.id) %>
-      </td>
-      
-      <!--注文詳細リスト取得-->
-      <% order_details = OrderDetail.where(order_id: order.id) %>
-      
-      <!--注文商品数取得-->
-      <% order_details.each do |order_detail| %>
-        <% @amount += order_detail.amount %>
-      <% end %>
-      
-      <td>
-        <%= @amount %>
-      </td>
-      
-      <!--注文商品数リセット-->
-      <% @amount = 0 %>
-      
-      <td><%= order.status_i18n %></td>
-    </tr>
-    <% end %>
-  </tbody>
-  </table>
-  <%= paginate @orders %>
-</div>
+    <div class="col-sm-6 m-sm-auto pb-5">
+          <h1 class="my-5">注文履歴一覧</h1>
+          <table class="table table-borderless">
+              <thead class="border-top border-bottom">
+                  <tr>
+                    <th>購入日時</th>
+                    <th>購入者</th>
+                    <th>注文個数</th>
+                    <th>注文ステータス</th>
+                  </tr>
+              </thead>
+        
+              <tbody>
+                    <% @orders.each do |order| %>
+                    <tr>
+                      <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+                      
+                      <!--注文会員取得-->
+                      <% @customer = Customer.find_by(id: order.customer_id)%>
+                      
+                      <td>
+                        <%= link_to @customer.full_name, admin_order_path(order.id) %>
+                      </td>
+                      
+                      <!--注文詳細リスト取得-->
+                      <% order_details = OrderDetail.where(order_id: order.id) %>
+                      
+                      <!--注文商品数取得-->
+                      <% order_details.each do |order_detail| %>
+                        <% @amount += order_detail.amount %>
+                      <% end %>
+                      
+                      <td>
+                        <%= @amount %>
+                      </td>
+                      
+                      <!--注文商品数リセット-->
+                      <% @amount = 0 %>
+                      
+                      <td><%= order.status_i18n %></td>
+                    </tr>
+                    <% end %>
+              </tbody>
+          </table>
+      <%= paginate @orders %>
+    </div>
 </div>

@@ -1,85 +1,85 @@
 <div class="container">
-<div class="row my-5 py-5 table-responsive">
+    <div class="row my-5 py-5 table-responsive">
 
-<% if @cart_items.count == 0 %>
-<div class="col m-auto my-5 py-5">
-  <div class="col-3 m-auto my-5 py-5 text-center">
-    <h4>カートは空です</h4>
-    <div class=><%= link_to "買い物を続ける", public_items_path, class: "btn btn-primary" %></div>
-  </div>
-</div>
+        <% if @cart_items.count == 0 %>
+        <div class="col m-auto py-5">
+          <div class="col-sm-3 m-auto my-5 py-5 text-center">
+            <p>カートは空です</p>
+            <div><%= link_to "買い物を続ける", public_items_path, class: "btn btn-primary font-weight-bold" %></div>
+          </div>
+        </div>
 
-<% else %>
-  <div class="col-10 m-auto text-nowrap">
-    <div class="col-12 row justify-content-between py-3">
-      <div class="col-6"><strong>ショッピングカート</strong></div>
-      <div class="col-6 text-right"><%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class: "btn btn-danger" %></div>
-    </div>
-  
-  
-    <div class="col-12">
-      <table class="table table-bordered">
-          <thead>
-              <th>商品名</th>
-              <th>単価（税込）</th>
-              <th>数量</th>
-              <th>小計</th>
-              <th></t>
-          </thead>
-          
-          <tbody>
-          <% @cart_items.each do |cart_item| %>
-            <tr>
-              <td>
-                <%= cart_item.item.name %>
-              </td>
+        <% else %>
+          <div class="col-10 m-auto text-nowrap">
+            <div class="col-12 row justify-content-between py-3">
+              <div class="col-6"><strong>ショッピングカート</strong></div>
+              <div class="col-6 text-right"><%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class: "btn btn-danger" %></div>
+            </div>
 
-              <td>
-                <%= cart_item.item.with_tax_price.to_s(:delimited) %>
-              </td>
 
-              <td>
-                  <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
-                    <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
-                    <%= f.hidden_field :item_id, value: cart_item.item.id %>
-                    <%= f.hidden_field :customer_id, :value => current_customer.id %>
-                    <%= f.submit "変更" %>
+            <div class="col-12">
+              <table class="table table-bordered">
+                  <thead>
+                      <th>商品名</th>
+                      <th>単価（税込）</th>
+                      <th>数量</th>
+                      <th>小計</th>
+                      <th></t>
+                  </thead>
+
+                  <tbody>
+                  <% @cart_items.each do |cart_item| %>
+                    <tr>
+                      <td>
+                        <%= cart_item.item.name %>
+                      </td>
+
+                      <td>
+                        <%= cart_item.item.with_tax_price.to_s(:delimited) %>
+                      </td>
+
+                      <td>
+                          <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
+                            <%= f.select :amount, *[1..10], { include_blank: '個数選択'}, required:true %>
+                            <%= f.hidden_field :item_id, value: cart_item.item.id %>
+                            <%= f.hidden_field :customer_id, :value => current_customer.id %>
+                            <%= f.submit "変更" %>
+                          <% end %>
+                      </td>
+
+                      <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+
+                      <!--小計を計算-->
+                      <% @total_price  +=  cart_item.subtotal %>
+
+                      <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, data: {confirm: "本当にしますか？"}, class: "btn btn-danger" %></td>
+                    </tr>
                   <% end %>
-              </td>
+                  </tbody>
+                </table>
+            </div>
 
-              <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+            <div class="col-12 row justify-content-between py-3">
+              <div class="col-6">
+                <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+              </div>
 
-              <!--小計を計算-->
-              <% @total_price  +=  cart_item.subtotal %>
+              <div class="col-6">
+                <table class="table table-bordered">
+                    <tr>
+                      <th>合計金額</th>
+                      <td><%= @total_price.to_s(:delimited) %></td>
+                    </tr>
+                </table>
+              </div>
+            </div>
 
-              <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, data: {confirm: "本当にしますか？"}, class: "btn btn-danger" %></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
+            <div class="col-3 mr-auto">
+               <div><%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-success" %></div>
+            </div>
+
+        </div>
+        <% end %>
+
     </div>
-   
-    <div class="col-12 row justify-content-between py-3">
-      <div class="col-6">
-        <%= link_to "買い物を続ける", public_items_path, class: "btn btn-primary" %>
-      </div>
-      
-      <div class="col-6">
-        <table class="table table-bordered">
-            <tr>
-              <th>合計金額</th>
-              <td><%= @total_price.to_s(:delimited) %></td>
-            </tr>
-        </table>
-      </div>
-    </div>
-      
-    <div class="col-3 mr-auto">
-       <div><%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-success" %></div>
-    </div>
-
-</div>
-<% end %>
-
-</div>
 </div>

@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdrawal
-    @customer = customer_params
+    @customer = Customer.find(current_customer.id)
     @customer.is_deleted = "true"
     @customer.save
     reset_session

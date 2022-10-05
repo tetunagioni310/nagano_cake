@@ -1,20 +1,12 @@
 <div class="container">
 <div class="row py-5">
 
-    <div class="col-md-2 text-center py-sm-5 pb-5">
-      <p class="mb-3">ジャンル検索</p>
-
-      <div class="d-flex flex-column">
-        <% @genres.each do |genre| %>
-          <%= link_to genre.name, public_genre_path(genre.id), class: "my-2 text-decoration-none" %>
-        <% end %>
-      </div>
-    </div>
+    <%= render "public/shared/genres_search", genres: @genres %>
 
     <div class="col-md-9 m-auto">
 
      <div class="text-center">
-       <h1><%= @genre.name %>（全<%= @items.count %>件）</h1>
+       <h1><%= @genre.name %>（全<%= @full_items.count %>件）</h1>
       <div class="d-flex flex-wrap my-auto">
         <% @items.each do |item| %>
         <div class="col-sm-3 pt-5">

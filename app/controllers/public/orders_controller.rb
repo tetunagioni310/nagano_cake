@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :not_cart_items, only: [:new,:create,:log,:thanks]
+  before_action :not_cart_items, only: [:new]
 
   def new
     @order = Order.new
