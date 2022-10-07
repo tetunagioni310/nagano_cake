@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-lg">
 <div class="row py-5">
 
     <%= render "public/shared/genres_search", genres: @genres %>
@@ -7,11 +7,11 @@
         <div class="card m-auto d-none d-md-block" style="width: 750px;">
           <img class="card-img" src='/assets/12011.jpg' alt="" %>
           <div class="card-img-overlay text-center pt-5 mt-5">
-            <h5 class="text-black pt-5 mt-5">
+            <p class="h5 text-black pt-5 mt-5">
               <strong>
                 ようこそ、ながのCAKEへ!<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。
               </strong>
-            </h5>
+            </p>
           </div>
         </div>
 
@@ -19,7 +19,7 @@
           <h1 class="mb-5">新着商品</h1>
             <div class="d-flex flex-wrap m-auto">
             <% @items.each do |item| %>
-              <div class="col-lg-2 mr-4 text-center">
+              <div class="col-md-2 mx-auto text-center">
                 <a class="text-decoration-none my-auto" href="/public/items/<%= item.id %>">
                   <%= image_tag item.get_image(120,120) %>
                   <p class="text-wrap mt-2"><%= item.name %></p>

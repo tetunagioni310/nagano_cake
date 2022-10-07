@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-lg">
 <div class="row py-5">
 
     <%= render "public/shared/genres_search", genres: @genres %>
 
-    <div class="col-md-9 m-auto">
+    <div class="col-lg-9 m-auto">
 
      <div class="text-center">
 
@@ -11,9 +11,9 @@
       <% items = Item.all %>
       <h1>商品一覧<span class="h6">（全<%= items.count %>件）</span></h1>
 
-      <div class="d-flex flex-wrap m-auto">
+      <div class="d-flex flex-wrap m-2">
         <% @items.each do |item| %>
-        <div class="col-sm-3 pt-5">
+        <div class="col-sm-3 pt-5 mx-auto">
           <a class="text-decoration-none my-auto" href="/public/items/<%= item.id %>">
             <%= image_tag item.get_image(150,150)%>
             <p class="text-wrap mt-2"><%= item.name %></p>

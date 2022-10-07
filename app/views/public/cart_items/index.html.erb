@@ -3,31 +3,31 @@
 
         <% if @cart_items.count == 0 %>
         <div class="col m-auto py-5">
-          <div class="col-sm-3 m-auto my-5 py-5 text-center">
+          <div class="col-md-3 m-auto my-5 py-5">
             <p>カートは空です</p>
             <div><%= link_to "買い物を続ける", public_items_path, class: "btn btn-primary font-weight-bold" %></div>
           </div>
         </div>
 
         <% else %>
-          <div class="col-10 m-auto text-nowrap">
-            <div class="col-12 row justify-content-between py-3">
-              <div class="col-6"><strong>ショッピングカート</strong></div>
-              <div class="col-6 text-right"><%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class: "btn btn-danger" %></div>
+          <div class="col-10 text-nowrap m-auto">
+            <div class="col row py-3">
+              <div class="col-4"><strong>ショッピングカート</strong></div>
+              <div class="col-4 offset-4 text-right"><%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class: "btn btn-danger" %></div>
             </div>
 
 
-            <div class="col-12">
-              <table class="table table-bordered">
-                  <thead>
+            <div class="col row">
+              <table class="table table-bordered border-dark">
+                  <tr>
                       <th>商品名</th>
                       <th>単価（税込）</th>
                       <th>数量</th>
                       <th>小計</th>
                       <th></t>
-                  </thead>
+                  </tr>
 
-                  <tbody>
+
                   <% @cart_items.each do |cart_item| %>
                     <tr>
                       <td>
@@ -52,19 +52,18 @@
                       <!--小計を計算-->
                       <% @total_price  +=  cart_item.subtotal %>
 
-                      <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, data: {confirm: "本当にしますか？"}, class: "btn btn-danger" %></td>
+                      <td class="text-center"><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, data: {confirm: "本当にしますか？"}, class: "btn btn-danger" %></td>
                     </tr>
                   <% end %>
-                  </tbody>
                 </table>
             </div>
 
-            <div class="col-12 row justify-content-between py-3">
-              <div class="col-6">
+            <div class="col d-flex py-3">
+              <div class="col-4">
                 <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
               </div>
 
-              <div class="col-6">
+              <div class="col-5 offset-3">
                 <table class="table table-bordered">
                     <tr>
                       <th>合計金額</th>
@@ -74,8 +73,8 @@
               </div>
             </div>
 
-            <div class="col-3 mr-auto">
-               <div><%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-success" %></div>
+            <div class="col">
+               <div class="col-4"><%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-success" %></div>
             </div>
 
         </div>
